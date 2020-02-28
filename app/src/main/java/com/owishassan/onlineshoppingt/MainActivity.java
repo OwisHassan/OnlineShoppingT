@@ -15,8 +15,14 @@ public class MainActivity extends AppCompatActivity {
         int j =0;
         j++;
         for(int i =0;i<10;i++){
-
+            j--;
         }
+
+
+
+
+
+
 
 
     }
