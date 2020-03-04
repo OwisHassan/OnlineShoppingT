@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 public class MShopping extends AppCompatActivity {
 
-    ListView items_List;
 
     ArrayList<ItemInfo> items_Data = new ArrayList<>();
 
@@ -29,12 +28,13 @@ public class MShopping extends AppCompatActivity {
             items_Data.add(new ItemInfo(0, i + "a",
                     i + "b", i + .0, i + .0));
 
-        items_List = findViewById(R.id.Item_List);
+        ListView items_List = findViewById(R.id.Item_List);
 
         iLA = new ItemsListAdabter(this,items_Data);
         items_List.setAdapter(iLA);
 
         go_To_Bag_Page = findViewById(R.id.Bag_Page);
+
         go_To_Bag_Page.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
