@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -33,6 +34,23 @@ public class MShopping extends AppCompatActivity {
         iLA = new ItemsListAdabter(this,items_Data);
         items_List.setAdapter(iLA);
 
+        items_List.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                ItemInfo II = items_Data.get(position);
+
+                String Data = (II.getItem_Photo()+"," + II.getItem_Name()+"," + II.getItem_Description()+"," + II.getItem_Price() +","+ II.getItem_Rate());
+
+                Intent i = new Intent(getBaseContext(), Item_Page.class);
+                i.putExtra("ItemData",Data);
+                startActivity(i);
+
+            }
+        });
+
+
+
         go_To_Bag_Page = findViewById(R.id.Bag_Page);
 
         go_To_Bag_Page.setOnClickListener(new View.OnClickListener() {
@@ -42,5 +60,8 @@ public class MShopping extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
     }
 }

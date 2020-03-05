@@ -31,15 +31,16 @@
             android:id="@+id/Bag_Page"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.1"/>
+            android:layout_weight="1"
+            android:text="bag"/>
 
         <Button
             android:id="@+id/Home_Page"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.1"/>
+            android:layout_weight="1"
+            android:text="Home"/>
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
