@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class My_Bag extends AppCompatActivity {
 
@@ -26,9 +28,21 @@ public class My_Bag extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my__bag);
 
-        for(int i =0;i<3;i++)
-            my_Items_Data.add(new ItemInfo(0, i + "a",
-                    i + "b", i + .0, i + .0));
+        String theSavedData = "";
+        try{
+            theSavedData = getSharedPreferences("A", MODE_PRIVATE).getString("B", "");
+        }catch (Exception e){}
+
+        ArrayList<String> A = new ArrayList<>();
+
+        if(theSavedData != "")
+            A = new ArrayList(Arrays.asList(theSavedData.split("-")));
+
+        for(int i =0;i<A.size();i++){
+            ArrayList<String> B = new ArrayList(Arrays.asList(A.get(i).split(",")));
+            my_Items_Data.add(new ItemInfo(Integer.parseInt(B.get(0)),B.get(1),B.get(2),Double.parseDouble(B.get(3)),Double.parseDouble(B.get(4))));
+        }
+
 
         items_List = findViewById(R.id.Item_Bag_List);
 

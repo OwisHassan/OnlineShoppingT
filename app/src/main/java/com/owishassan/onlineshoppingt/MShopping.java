@@ -50,7 +50,6 @@ public class MShopping extends AppCompatActivity {
         });
 
 
-
         go_To_Bag_Page = findViewById(R.id.Bag_Page);
 
         go_To_Bag_Page.setOnClickListener(new View.OnClickListener() {
